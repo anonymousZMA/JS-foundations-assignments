@@ -9,9 +9,14 @@ To install the game, simply clone the repository and open the index.html file in
 
 ## Usage
 
-When you open the index.html file, a popup window will appear asking you to enter your move (rock, paper, or scissors). Make your selection and click "OK" to proceed.
+To play the game, follow these steps:
 
-To view the results of the game, open the console in your browser (usually by right-clicking and selecting "Inspect" or "Inspect Element"). The console will display the computer's move, the player's move, and the result of the round.
+1. Open the index.html file in your web browser.
+2. Open the console log in your browser.
+3. Type game() into the console and hit enter. This will start the game.
+4. A popup window will appear asking you to enter your selection of rock, paper, or scissors.
+5. Type your selection into the input field and click the "OK" button.
+6. The computer will randomly select its move, and the game result will be displayed in the console log.
 
 You can continue playing rounds by refreshing the page and entering a new move when prompted.
 

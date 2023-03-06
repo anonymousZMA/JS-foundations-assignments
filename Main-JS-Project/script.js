@@ -61,5 +61,3 @@ function game() {
     console.log(`Well, Congrats! you won 🥴`);
   }
 }
-
-game();
