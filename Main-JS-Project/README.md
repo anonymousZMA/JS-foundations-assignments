@@ -5,7 +5,9 @@ This is a simple game of Rock, Paper, Scissors created using pure JavaScript and
 ## Installation
 
 To install the game, simply clone the repository and open the index.html file in your browser.
-`bash git clone https://github.com/your-username/rock-paper-scissors.git`
+```bash 
+git clone https://github.com/your-username/rock-paper-scissors.git
+```
 
 ## Usage
 
