@@ -7,19 +7,22 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection == ("" || null))
-    return `Hey there! Don't be shy, make your move! But remember, leaving the input field empty won't do you any good. So go ahead and show that computer who's boss!`;
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
-  if (playerSelection !== ("rock" || "paper" || "scissors"))
+
+  // Verifying Player Selection
+  if (
+    playerSelection !== "rock" &&
+    playerSelection !== "paper" &&
+    playerSelection !== "scissors"
+  )
     return `Well, somebody's clearly been hitting the wrong buttons. Keep calm and try again, friend!`;
-  if (computerSelection == "rock" && playerSelection == "scissors") {
-    computerScore++;
-    return `You Lost!, ${computerSelection} beats ${playerSelection}`;
-  } else if (computerSelection == "scissors" && playerSelection == "paper") {
-    computerScore++;
-    return `You Lost!, ${computerSelection} beats ${playerSelection}`;
-  } else if (computerSelection == "paper" && playerSelection == "rock") {
+
+  if (
+    (computerSelection == "rock" && playerSelection == "scissors") ||
+    (computerSelection == "scissors" && playerSelection == "paper") ||
+    (computerSelection == "paper" && playerSelection == "rock")
+  ) {
     computerScore++;
     return `You Lost!, ${computerSelection} beats ${playerSelection}`;
   } else if (computerSelection == playerSelection) {
@@ -31,22 +34,24 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  for (let i = 0; i < 5; i++) {
+  for (let time = 0; time < 5; time++) {
     let playerSelection = prompt("Please enter you selection ");
-    console.log("🚀 ~ file: script.js:24 ~ playerSelection:", playerSelection);
+    if (playerSelection == null)
+      return `Hey there! Don't be shy, make your move! But remember, leaving the input field empty won't do you any good. So go ahead and show that computer who's boss!`;
 
     const computerSelection = computerPlay();
+
     console.log(
-      "🚀 ~ file: script.js:26 ~ computerSelection:",
-      computerSelection
+      `Computer Selection: ${computerSelection} - Player Selection: ${playerSelection}`
     );
     console.log(playRound(playerSelection, computerSelection));
     console.log(
       `Computer Score: ${computerScore} - Player Score: ${playerScore}`
     );
-    if (i !== 4) {
+
+    if (time !== 4) {
       console.log(
-        `No pressure, but you only have ${4 - i} more shots at greatness!`
+        `No pressure, but you only have ${4 - time} more shots at greatness!`
       );
     } else {
       console.log(
@@ -55,9 +60,10 @@ function game() {
     }
     console.log("-".repeat(100));
   }
+
   if (computerScore > playerScore) {
-    console.log(`Niahaha 😈 Machine Beat Human`);
+    return `Niahaha 😈 Machine Beat Human`;
   } else {
-    console.log(`Well, Congrats! you won 🥴`);
+    return `Well, Congrats! you won 🥴`;
   }
 }
